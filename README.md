@@ -4,7 +4,9 @@ TODO list using react and reactstrap
 ## Requirements
 
 **1. [node.js & npm](https://nodejs.org/en/)**
+
 **2. [yarn](https://yarnpkg.com/en/)**
+
 **3. [git](https://git-scm.com/)**
 
 ## Usage
