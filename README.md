@@ -37,6 +37,16 @@ $ yarn serve
 $ yarn build --mode production    # use --mode development for un-minified large bundles and source maps
 ```
 
+- Delete the following files:
+
+1. [dist/static/js/bundle.js](dist/static/js/bundle.js)
+
+2. [dist/static/css/bundle.css](dist/static/js/bundle.css)
+
+```bash
+$ rm -f dist/static/js/bundle.js dist/static/css/bundle.css
+```
+
 ## Author
 
 **[Maneesh Divana](mailto:maneeshd77@gmail.com)**
