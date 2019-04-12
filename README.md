@@ -25,6 +25,16 @@ $ cd todo-list
 $ yarn install
 ```
 
+- Delete the following files:
+
+1. [dist/static/js/bundle.js](dist/static/js/bundle.js)
+
+2. [dist/static/css/styles.css](dist/static/css/styles.css)
+
+```bash
+$ rm -f dist/static/js/bundle.js dist/static/css/styles.css
+```
+
 - Then to run the app in hot-reloading mode in development:
 
 ```bash
@@ -35,16 +45,6 @@ $ yarn serve
 
 ```bash
 $ yarn build --mode production    # use --mode development for un-minified large bundles and source maps
-```
-
-- Delete the following files:
-
-1. [dist/static/js/bundle.js](dist/static/js/bundle.js)
-
-2. [dist/static/css/styles.css](dist/static/css/styles.css)
-
-```bash
-$ rm -f dist/static/js/bundle.js dist/static/css/styles.css
 ```
 
 ## Author
