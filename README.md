@@ -41,7 +41,7 @@ $ yarn build --mode production    # use --mode development for un-minified large
 
 1. [dist/static/js/bundle.js](dist/static/js/bundle.js)
 
-2. [dist/static/css/styles.css](dist/static/js/styles.css)
+2. [dist/static/css/styles.css](dist/static/css/styles.css)
 
 ```bash
 $ rm -f dist/static/js/bundle.js dist/static/css/styles.css
