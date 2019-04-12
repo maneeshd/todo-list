@@ -39,7 +39,7 @@ export default class Todo extends React.Component {
     deleteItem(item) {
         if(item) {
             this.setState(() => ({
-                items: this.state.items.filter((ele) => ele!==item)
+                items: this.state.items.filter((ele) => ele !== item)
             }));
         }
     }
@@ -61,7 +61,6 @@ export default class Todo extends React.Component {
 
                 <Footer
                     addItem={this.addItem}
-                    deleteAll={this.deleteAll}
                 />
             </React.Fragment>
         );

@@ -14,26 +14,16 @@ export default class Item extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false,
-            backdrop: true
+            modal: false
         };
 
         this.toggle = this.toggle.bind(this);
-        this.changeBackdrop = this.changeBackdrop.bind(this);
     }
 
     toggle() {
         this.setState(() => ({
             modal: !this.state.modal
         }));
-    }
-
-    changeBackdrop(event) {
-        let value = event.target.value;
-        if (value !== 'static') {
-            value = JSON.parse(value);
-        }
-        this.setState(() => ({ backdrop: value }));
     }
 
     render() {
@@ -68,7 +58,7 @@ export default class Item extends React.Component {
                         </Col>
                     </Row>
                 </ListGroupItem>
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop={this.state.backdrop} size="lg">
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop="static" size="lg">
                     <ModalHeader toggle={this.toggle}>Edit TODO Item</ModalHeader>
                     <ModalBody>
                         <EditItem
