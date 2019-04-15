@@ -9,18 +9,15 @@ export default class EditItem extends React.Component {
         this.state = {
             inputText: this.props.item
         };
-
-        this.inputHandler = this.inputHandler.bind(this);
-        this.submitHandler = this.submitHandler.bind(this);
     }
 
-    inputHandler(event) {
+    inputHandler = event => {
         event.preventDefault();
         const text = event.target.value;
         this.setState(() => ({inputText: text}));
     }
 
-    submitHandler() {
+    submitHandler = () => {
         this.props.editItem(this.props.index, this.state.inputText);
         this.setState(() => ({inputText: ""}));
         this.props.modalToggle();

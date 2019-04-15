@@ -9,18 +9,15 @@ export default class Footer extends React.Component {
         this.state = {
             inputText: ""
         };
-
-        this.inputHandler = this.inputHandler.bind(this);
-        this.submitHandler = this.submitHandler.bind(this);
     }
 
-    inputHandler(event) {
+    inputHandler = event => {
         event.preventDefault();
         const text = event.target.value.trim();
         this.setState(() => ({inputText: text}));
     }
 
-    submitHandler() {
+    submitHandler = () => {
         this.props.addItem(this.state.inputText);
         this.setState(() => ({inputText: ""}));
     }

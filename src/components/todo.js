@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header'
-import ItemList from './item-list'
+import ItemList from "./item-list"
 import Footer from './footer'
 
 
@@ -11,13 +11,9 @@ export default class Todo extends React.Component {
         this.state = {
             items: []
         };
-
-        this.addItem = this.addItem.bind(this);
-        this.editItem = this.editItem.bind(this);
-        this.deleteItem = this.deleteItem.bind(this);
     }
 
-    addItem(item) {
+    addItem = item => {
         if(item) {
             this.setState((prevState) => prevState.items.push(item));
             // this.setState(() => ({
@@ -26,7 +22,7 @@ export default class Todo extends React.Component {
         }
     }
 
-    editItem(index, item) {
+    editItem = (index, item) => {
         if(item) {
             const newItems = this.state.items
             newItems[index] = item
@@ -36,7 +32,7 @@ export default class Todo extends React.Component {
         }
     }
 
-    deleteItem(item) {
+    deleteItem = item => {
         if(item) {
             this.setState(() => ({
                 items: this.state.items.filter((ele) => ele !== item)
