@@ -7,6 +7,7 @@ module.exports = {
         "amd": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -15,7 +16,7 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react", "prettier", "babel", "jsx-a11y", "import"
     ],
     "rules": {
         indent: [
