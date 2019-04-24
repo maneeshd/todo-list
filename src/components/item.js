@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
+    Container,
+    Input,
     ListGroupItem,
     Row,
     Col,
@@ -7,67 +9,91 @@ import {
     Modal,
     ModalBody,
     ModalHeader } from 'reactstrap';
-import EditItem from './edit-item'
+import { useStateValue } from './state';
 
 
-export default class Item extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modal: false
-        };
-    }
+const Item = props => {
+    const [modal, toggleModal] = useState(false);
+    const [inputText, setInputText] = useState(props.item);
+    const [{ items }, dispatch] = useStateValue();
 
-    toggle = () => {
-        this.setState(() => ({
-            modal: !this.state.modal
-        }));
-    }
-
-    render() {
-        return (
-            <React.Fragment>
-                <ListGroupItem>
-                    <Row>
-                        <Col md={10}>
-                            <p className="lead text-wrap">{this.props.item}</p>
-                        </Col>
-                        <Col md={2}>
-                            <Button
-                                close
-                                color="danger"
-                                id="delete-item"
-                                onClick={() => {
-                                    this.props.deleteItem(this.props.item)
-                                }}
-                                title="Delete TODO Item"
-                                className="text-danger ml-1"
-                            />
-                            <Button
-                                close
-                                color="warning"
-                                id="edit-item"
-                                className="text-warning mr-1"
-                                title="Edit TODO Item"
-                                onClick={this.toggle}
-                            >
-                                &#9998;
-                            </Button>
-                        </Col>
-                    </Row>
-                </ListGroupItem>
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop="static" size="lg">
-                    <ModalHeader toggle={this.toggle}>Edit TODO Item</ModalHeader>
-                    <ModalBody>
-                        <EditItem
-                            item={this.props.item}
-                            index={this.props.index}
-                            editItem={this.props.editItem}
-                            modalToggle={this.toggle}
+    return (
+        <React.Fragment>
+            <ListGroupItem>
+                <Row>
+                    <Col md={10}>
+                        <p className="lead text-wrap">{props.item}</p>
+                    </Col>
+                    <Col md={2}>
+                        <Button
+                            close
+                            color="danger"
+                            id="delete-item"
+                            onClick={() => dispatch({
+                                type: 'deleteItem',
+                                item: props.item,
+                            })}
+                            title="Delete TODO Item"
+                            className="text-danger ml-1"
                         />
-                    </ModalBody>
-                </Modal>
-            </React.Fragment>
-        );
-    }
-}
+                        <Button
+                            close
+                            color="warning"
+                            id="edit-item"
+                            className="text-warning mr-1"
+                            title="Edit TODO Item"
+                            onClick={() => toggleModal(!modal)}
+                        >
+                            &#9998;
+                        </Button>
+                    </Col>
+                </Row>
+            </ListGroupItem>
+            <Modal isOpen={modal} toggle={() => toggleModal(!modal)} className={props.className} backdrop="static" size="lg">
+                <ModalHeader toggle={() => toggleModal(!modal)}>Edit TODO Item</ModalHeader>
+                <ModalBody>
+                    <Container fluid={true} className="text-center">
+                        <Row className="my-2">
+                            <Col md={12}>
+                                <Input
+                                    type="text"
+                                    name="item"
+                                    id="item"
+                                    className="shadow-sm"
+                                    bsSize="lg"
+                                    onChange={e => setInputText(e.target.value)}
+                                    maxLength={64}
+                                    title="Max: 64 characters"
+                                    value={inputText}
+                                />
+                            </Col>
+                        </Row>
+                        <Row className="my-2">
+                            <Col md={{ size:6, offset: 3 }}>
+                                <Button
+                                    color="success"
+                                    className="shadow-sm"
+                                    block
+                                    onClick={() => {
+                                        dispatch({
+                                            type: 'editItem',
+                                            index: props.index,
+                                            item: inputText.trim()
+                                        });
+                                        toggleModal(!modal);
+                                    }}
+                                    disabled={!inputText.trim() || inputText.trim() === props.item}
+                                    title="Update TODO item"
+                                >
+                            Update
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Container>
+                </ModalBody>
+            </Modal>
+        </React.Fragment>
+    );
+};
+
+export default Item;

@@ -57,7 +57,8 @@ module.exports = (env, options) => {
         devServer: {
             contentBase: path.join(__dirname, "dist"),
             compress: true,
-            historyApiFallback: true
+            historyApiFallback: true,
+            disableHostCheck: true
         },
         optimization: {
             minimizer: [

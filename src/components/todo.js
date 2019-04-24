@@ -1,64 +1,55 @@
 import React from 'react';
-import Header from './header'
-import ItemList from "./item-list"
-import Footer from './footer'
+import { StateProvider } from './state';
+import Header from './header';
+import ItemList from "./item-list";
 
 
-export default class Todo extends React.Component {
-    constructor(props) {
-        super(props);
+const Todo = props => {
+    // Initial App State
+    const initState = {
+        items: []
+    };
 
-        this.state = {
-            items: []
-        };
-    }
-
-    addItem = item => {
-        if(item) {
-            this.setState((prevState) => prevState.items.push(item));
-            // this.setState(() => ({
-            //     items: this.state.items.concat([item])
-            // }));
+    // Action Reducer
+    const reducer = (state, action) => {
+        switch(action.type) {
+            case 'addItem':
+                if(action.item)
+                    return {
+                        ...state,
+                        items: state.items.concat(action.item)
+                    }
+                return state;
+            case 'editItem':
+                if(action.index > -1 && action.item) {
+                    state.items[action.index] = action.item;
+                    return {
+                        ...state
+                    }
+                }
+                return state;
+            case 'deleteItem':
+                if(action.item)
+                    return {
+                        ...state,
+                        items: state.items.filter(ele => ele !== action.item)
+                    }
+                return state;
+            default:
+                return state;
         }
-    }
+    };
 
-    editItem = (index, item) => {
-        if(item) {
-            const newItems = this.state.items
-            newItems[index] = item
-            this.setState(() => ({
-                items: newItems
-            }));
-        }
-    }
+    // Return Render
+    return (
+        <StateProvider initialState={initState} reducer={reducer}>
+            <Header {...props} />
 
-    deleteItem = item => {
-        if(item) {
-            this.setState(() => ({
-                items: this.state.items.filter((ele) => ele !== item)
-            }));
-        }
-    }
+            <hr />
 
-    render() {
-        return (
-            <React.Fragment>
-                <Header />
+            <ItemList {...props} />
+        </StateProvider>
+    );
+};
 
-                <hr />
-
-                <ItemList
-                    items={this.state.items}
-                    editItem={this.editItem}
-                    deleteItem={this.deleteItem}
-                />
-
-                <hr />
-
-                <Footer
-                    addItem={this.addItem}
-                />
-            </React.Fragment>
-        );
-    }
-}
+export default Todo;

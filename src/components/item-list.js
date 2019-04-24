@@ -1,22 +1,23 @@
 import React from 'react'
 import Item from './item'
 import { ListGroup } from 'reactstrap'
+import { useStateValue } from './state';
 
 
-const ItemList = (props) => {
+const ItemList = props => {
+    const [{ items }, dispatch] = useStateValue();
     let jsx = <p className="lead">Feels lonely out here...</p>;
-
-    if(props.items.length) {
+    console.log(items);
+    if(items.length) {
         jsx = (
             <ListGroup className="shadow-sm text-justify">
                 {
-                    props.items.map((item, index) => (
+                    items.map((item, index) => (
                         <Item
+                            {...props}
                             item={item}
                             key={index + 1}
                             index={index}
-                            editItem={props.editItem}
-                            deleteItem={props.deleteItem}
                         />
                     ))
                 }
