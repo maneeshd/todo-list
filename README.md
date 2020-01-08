@@ -44,6 +44,8 @@ $ python -m pip install starlette uvicorn aiofiles -U
 ...
 Successfully installed ...
 
+$ cd dist
+
 $ python -m uvicorn server:app
 INFO:     Started server process [29822]
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
