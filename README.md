@@ -64,4 +64,4 @@ INFO:     Application startup complete.
 
 ## Author
 
-### 👨‍💻Maneesh Divana | 📧maneeshd77@gmail.com
+### 👨‍💻 Maneesh Divana | 📧 maneeshd77@gmail.com
