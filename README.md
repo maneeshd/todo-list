@@ -1,6 +1,6 @@
-# TODO List Using React
+# TODO List
 
-**A TOTO list app using `react.js (context api & hooks for state management)` & `react-bootstrap`.**
+**A TODO list app using `react.js (context api & hooks for state management)` & `react-bootstrap`.**
 
 ## To develop
 
