@@ -1,7 +1,5 @@
 # TODO List Using React
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 **A TOTO list app using `react.js (context api & hooks for state management)` & `react-bootstrap`.
 
 ## To develop
