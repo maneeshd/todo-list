@@ -3,7 +3,7 @@ TODO list using react and reactstrap
 
 ## Requirements
 
-**1. [node.js & npm](https://nodejs.org/en/)**
+**1. [node.js](https://nodejs.org/en/)**
 
 **2. [yarn](https://yarnpkg.com/en/)**
 
