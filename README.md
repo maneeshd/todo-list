@@ -1,6 +1,6 @@
 # TODO List Using React
 
-**A TOTO list app using `react.js (context api & hooks for state management)` & `react-bootstrap`.
+**A TOTO list app using `react.js (context api & hooks for state management)` & `react-bootstrap`.**
 
 ## To develop
 
@@ -59,6 +59,8 @@ INFO:     Application startup complete.
 - [Babel](https://babeljs.io/)
 - [Webpack](https://webpack.js.org/)
 - [Yarn](https://yarnpkg.com/lang/en/)
+- [Starlette](https://www.starlette.io/)
+- [Uvicorn](https://www.uvicorn.org/)
 
 ## Author
 
