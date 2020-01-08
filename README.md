@@ -1,17 +1,12 @@
-# todo-list
-TODO list using react and reactstrap
+# TODO List Using React
 
-## Requirements
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-**1. [node.js](https://nodejs.org/en/)**
+**A TOTO list app using `react.js (context api & hooks for state management)` & `react-bootstrap`.
 
-**2. [yarn](https://yarnpkg.com/en/)**
+## To develop
 
-**3. [git](https://git-scm.com/)**
-
-## Usage
-
-- Clone this repository
+1. Clone the repository
 
 ```bash
 $ git clone https://github.com/maneeshd/todo-list.git
@@ -19,36 +14,52 @@ $ git clone https://github.com/maneeshd/todo-list.git
 $ cd todo-list
 ```
 
-- Install the dependencies and devDependencies
+2. Install the dependencies and devDependencies
 
 ```bash
 $ yarn install
 ```
 
-- Delete the following files:
-
-1. [dist/static/js/bundle.js](dist/static/js/bundle.js)
-
-2. [dist/static/css/styles.css](dist/static/css/styles.css)
+3. To build the `js` & `css` bundle for production:
 
 ```bash
-$ rm -f dist/static/js/bundle.js dist/static/css/styles.css
+$ yarn build
 ```
 
-- Then to run the app in hot-reloading mode in development:
+## To Run
+
+1. To run the app in [webpack-dev-server](https://github.com/webpack/webpack-dev-server) in development:
 
 ```bash
 $ yarn serve
 ```
 
-- To build the `js` and `css` bundle for production:
+2. To run the app with the provided [python server](dist/server.py):
 
 ```bash
-$ yarn build --mode production    # use --mode development for un-minified large bundles and source maps
+$ python --version
+Python 3.7.6
+
+$ python -m pip install starlette uvicorn aiofiles -U
+...
+Successfully installed ...
+
+$ python -m uvicorn server:app
+INFO:     Started server process [29822]
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
 ```
+
+## Built using
+
+- [React](https://reactjs.org/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Bootstrap](https://getbootstrap.com/)
+- [Babel](https://babeljs.io/)
+- [Webpack](https://webpack.js.org/)
+- [Yarn](https://yarnpkg.com/lang/en/)
 
 ## Author
 
-**[Maneesh Divana](mailto:maneeshd77@gmail.com)**
-
------
+### 👨‍💻Maneesh Divana | 📧maneeshd77@gmail.com
