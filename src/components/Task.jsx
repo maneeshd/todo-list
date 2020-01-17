@@ -40,11 +40,8 @@ const Task = ({index, task}) => {
     if (editMode) {
         return (
             <Row className='align-items-center justify-content-center'>
-                <Col md={11} lg={11} xl={11} className='align-self-center text-center px-0'>
+                <Col md={10} lg={11} xl={11} className='align-self-center text-center px-0 text-wrap'>
                     <InputGroup ref={target}>
-                        <InputGroup.Prepend>
-                            <InputGroup.Checkbox value={taskDone} checked={taskDone} disabled={true} />
-                        </InputGroup.Prepend>
                         <FormControl
                             id='task-input'
                             value={editText}
@@ -62,29 +59,24 @@ const Task = ({index, task}) => {
                         )}
                     </Overlay>
                 </Col>
-                <Col md={1} lg={1} xl={1} className='align-self-center text-right p-0'>
+                <Col md={2} lg={1} xl={1} className='align-self-center text-right p-0'>
                     <Button variant='success font-weight-bold' className='btn-xs mr-1' onClick={handleEdit}>&#10004;</Button>
                     <Button variant='warning font-weight-bold' className='btn-xs ml-1' onClick={() => setEditMode(false)}>↩︎</Button>
                 </Col>
             </Row>
         );
     } else {
-        const TaskText = () => {
-            if (taskDone) {
-                return <span className='mx-1'><strike>{task}</strike></span>;
-            } else {
-                return <span className='mx-1'>{task}</span>;
-            }
-        };
         return (
-            <Row className='align-items-center justify-content-center'>
-                <Col md={11} lg={11} xl={11} className='align-self-center text-center px-0'>
-                    <InputGroup className='align-items-center jutify-content-center'>
+            <Row className='align-items-center justify-content-center text-wrap'>
+                <Col md={10} lg={10} xl={10} className='align-self-center text-center px-0 text-wrap'>
+                    <InputGroup className='align-items-center jutify-content-center text-wrap'>
                         <InputGroup.Checkbox value={taskDone} checked={taskDone} onChange={() => setTaskDone(!taskDone)} />
-                        <TaskText />
+                        <div className="px-1 text-wrap">
+                            {taskDone ? <strike>{task}</strike> : task}
+                        </div>
                     </InputGroup>
                 </Col>
-                <Col md={1} lg={1} xl={1} className='align-self-center text-right p-0'>
+                <Col md={2} lg={1} xl={1} className='align-self-center text-right p-0 text-wrap'>
                     <Button variant='primary font-weight-bold' className='btn-xs mr-1' onClick={() => setEditMode(true)}>
                         &#9998;
                     </Button>

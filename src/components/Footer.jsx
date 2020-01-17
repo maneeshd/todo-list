@@ -18,7 +18,7 @@ const Footer = () => {
     if (tasks.length > 0) {
         return (
             <Container fluid={true} className='text-center'>
-                <Button variant='danger' onClick={handleClearAll}>Clear All</Button>
+                <Button variant='danger' size="sm" onClick={handleClearAll}>Clear All</Button>
             </Container>
         );
     } else {

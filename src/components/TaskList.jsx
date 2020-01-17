@@ -22,7 +22,7 @@ const TaskList = () => {
             </ListGroup>
         );
     } else {
-        return <p className='lead text-muted'>Feels lonely out here!😔</p>;
+        return <p className='lead text-muted'>What do you want to do today?</p>;
     }
 };
 

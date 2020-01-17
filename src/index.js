@@ -16,20 +16,32 @@ const App = props => {
 
     // Render App
     return (
-        <Container className='w-50 mx-auto text-center shadow py-2 mt-4 rounded' fluid={true}>
-            <h1>TODO List</h1>
-            <ToDoContextProvider {...props} initialState={initAppState}>
-                <Header />
+        <React.Fragment>
+            <Container className='w-50 mx-auto text-center shadow rounded my-4 py-3' fluid={true}>
+                <h1 className="mb-2">TODO List</h1>
+                <ToDoContextProvider {...props} initialState={initAppState}>
+                    <Header />
 
-                <hr className='shadow' />
+                    <hr className='shadow' />
 
-                <TaskList />
+                    <TaskList />
 
-                <hr className='shadow' />
+                    <hr className='shadow' />
 
-                <Footer />
-            </ToDoContextProvider>
-        </Container>
+                    <Footer />
+                </ToDoContextProvider>
+            </Container>
+            <div fluid={true} id="footer" className="text-center shadow-lg rounded bg-light text-muted py-2">
+                <p className="lead mb-0">Maneesh Divana</p>
+                <p>
+                    <a href="mailto:maneeshd77@gmail.com" className="text-muted">
+                        maneeshd77@gmail.com
+                    </a>
+                    <b> | </b>
+                    <span>+1 312-973-9216</span>
+                </p>
+            </div>
+        </React.Fragment>
     );
 };
 

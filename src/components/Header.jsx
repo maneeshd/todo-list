@@ -11,10 +11,9 @@ const Header = () => {
     const [showTooltip, setShowTooltip] = useState(false);
     const target = useRef(null);
 
-    const addBtnHandler = event => {
+    const addBtnHandler = () => {
         dispatch({type: 'insert', value: inputText});
         setInputText('');
-        // event.target.blur();
         setShowTooltip(false);
     };
 
@@ -25,13 +24,13 @@ const Header = () => {
 
     return (
         <Row className='align-items-center justify-content-center'>
-            <Col md={11} lg={11} xl={11} className='align-self-center text-center'>
+            <Col md={10} lg={11} xl={11} className='align-self-center text-center'>
                 <InputGroup ref={target}>
                     <FormControl
                         id='task-input'
                         value={inputText}
                         onChange={event => setInputText(event.target.value)}
-                        placeholder='What do you want to do today?'
+                        placeholder='Enter task to be done'
                         onKeyDown={handleEnterKey}
                         onFocus={() => setShowTooltip(true)}
                         onBlur={() => setShowTooltip(false)}
@@ -45,7 +44,7 @@ const Header = () => {
                     )}
                 </Overlay>
             </Col>
-            <Col md={1} lg={1} xl={1} className='align-self-center'>
+            <Col md={2} lg={1} xl={1} className='align-self-center'>
                 <Button variant='success' className='font-weight-bold' disabled={inputText.length <= 0} onClick={addBtnHandler}>
                     &#43;
                 </Button>
