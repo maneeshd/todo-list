@@ -4,7 +4,7 @@ from starlette.responses import FileResponse
 from starlette.middleware import Middleware
 from starlette.middleware.gzip import GZipMiddleware
 from starlette.staticfiles import StaticFiles
-from os import path
+from os import path, getenv
 from uvicorn import run as serve_app
 
 
@@ -35,4 +35,4 @@ async def homepage(request):
 
 
 if __name__ == "__main__":
-    serve_app(app, host="0.0.0.0", port=8000)
+    serve_app(app, host="127.0.0.1", port=getenv("PORT", 8080))
