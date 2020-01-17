@@ -13,13 +13,13 @@ CUR_DIR = path.realpath(path.dirname(__file__))
 
 app = Starlette(debug=True, middleware=[Middleware(GZipMiddleware)])
 
-app.mount("/static", StaticFiles(directory="static", html=True), name="static")
+app.mount("/static", StaticFiles(directory="dist/static", html=True), name="static")
 
 
 @app.route("/favicon.ico", methods=["GET"])
 async def favicon(request):
     return FileResponse(
-        path="favicon.ico",
+        path="dist/favicon.ico",
         headers={"Content-Type": "image/x-icon"},
         media_type="image/x-icon"
     )
@@ -28,7 +28,7 @@ async def favicon(request):
 @app.route("/", methods=["GET"])
 async def homepage(request):
     return FileResponse(
-        path.join(CUR_DIR, "index.html"),
+        path.join(CUR_DIR, "dist", "index.html"),
         media_type="text/html",
         headers={"Content-Type": "text/html;charset=UTF-8"},
     )
