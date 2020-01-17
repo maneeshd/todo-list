@@ -40,7 +40,7 @@ const Task = ({index, task}) => {
     if (editMode) {
         return (
             <Row className='align-items-center justify-content-center'>
-                <Col md={10} lg={11} xl={11} className='align-self-center text-center px-0 text-wrap'>
+                <Col md={10} lg={11} xl={11} className='align-self-center px-0 text-wrap'>
                     <InputGroup ref={target}>
                         <FormControl
                             id='task-input'
@@ -68,7 +68,7 @@ const Task = ({index, task}) => {
     } else {
         return (
             <Row className='align-items-center justify-content-center text-wrap'>
-                <Col md={10} lg={10} xl={10} className='align-self-center text-center px-0 text-wrap'>
+                <Col md={10} lg={11} xl={11} className='align-self-center px-0 text-wrap'>
                     <InputGroup className='align-items-center jutify-content-center text-wrap'>
                         <InputGroup.Checkbox value={taskDone} checked={taskDone} onChange={() => setTaskDone(!taskDone)} />
                         <div className="px-1 text-wrap">
